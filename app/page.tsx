@@ -10,6 +10,7 @@ import { loadImage } from "./lib/imageProcessor"
 import { useTheme } from "./ThemeProvider"
 import { Button } from "@/components/ui/button"
 import type { LyricsResult, MusicSource } from "./types"
+import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
   const router = useRouter()
@@ -108,8 +109,13 @@ export default function Home() {
         >
           Generate Art
         </Button>
+        <p className="text-center text-xs text-zinc-400 dark:text-zinc-500">
+          Your image is processed entirely in your browser and never stored — it is cleared as soon as the art is generated.
+        </p>
       </main>
+      <Analytics />
     </div>
+    
   )
 }
 
